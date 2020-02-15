@@ -13,7 +13,6 @@ jobs:
 
     # Download and cache dependencies
     - restore_cache:
-
       keys:
       - v1-dependencies-{{ checksum "pollsapi/requirements.txt" }}
       # fallback to using the latest cache if no exact match is found
@@ -22,9 +21,9 @@ jobs:
     - run:
       name: install dependencies
       command: |
-      python3 -m venv venv
-      . venv/bin/activate
-      pip install -r pollsapi/requirements.txt
+        python3 -m venv venv
+        . venv/bin/activate
+        pip install -r pollsapi/requirements.txt
 
     - save_cache:
       paths:
